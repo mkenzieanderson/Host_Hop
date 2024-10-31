@@ -11,4 +11,9 @@ Nodemon must all be installed to your device. You can do this through the follow
 \
 With the host_hop repo open, navigate to the server folder.\
 Enter the following command in your terminal to install express in this folder.
-* _npm install express_
+* _npm install express dotenv_
+
+
+\
+To start up the server, enter the following command in your terminal:
+* _npm run dev_
