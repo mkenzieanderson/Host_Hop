@@ -6,7 +6,7 @@ const itemsRoutes = require('./routes/items');
 
 const app = express();
 
-// Middleware: this is triggered on every HTTP request to app, to help with debugging.
+// Log every http request to server terminal
 app.use(express.json());
 app.use((req, res, next) => {
     console.log(req.path, req.method);
