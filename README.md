@@ -17,5 +17,3 @@ Enter the following command in your terminal to install the following packages i
 \
 To start up the server, enter the following command in your terminal:
 * _npm run dev_
-
-mongodb+srv://andemac2:<db_password>@availableitems.xhek4.mongodb.net/?retryWrites=true&w=majority&appName=availableItems

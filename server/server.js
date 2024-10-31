@@ -26,5 +26,3 @@ mongoose.connect(process.env.MONGO_URI)
     .catch((error) => {
         console.log(error);
     }); 
-
-// mongo db password: 7hN6apFWp8sPpDs9
