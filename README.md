@@ -20,4 +20,16 @@ To start up the server, enter the following command in your terminal:
 
 
 ### Client Side
-From the terminal, navigate to the client directory.
+From the terminal, navigate to the client directory.\
+Run the following command to install all the dependencies inside the package.json file:
+* _npm i_
+
+
+\
+If there are issues with the installations, you can try the following command to resolve them:
+* _npm audit fix_
+
+
+\
+Finally, type the following command to start the app:
+* _npm start_
