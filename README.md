@@ -17,3 +17,7 @@ Enter the following command in your terminal to install the following packages i
 \
 To start up the server, enter the following command in your terminal:
 * _npm run dev_
+
+
+### Client Side
+From the terminal, navigate to the client directory.
