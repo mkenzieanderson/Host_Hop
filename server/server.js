@@ -1,6 +1,7 @@
 require('dotenv').config();
 
 const express = require('express');
+const cors = require('cors');
 const mongoose = require('mongoose');
 const itemsRoutes = require('./routes/items');
 const accountsRoutes = require('./routes/accounts');
@@ -9,6 +10,7 @@ const app = express();
 
 // Log every http request to server terminal
 app.use(express.json());
+app.use(cors());
 app.use((req, res, next) => {
     console.log(req.path, req.method);
     next();
