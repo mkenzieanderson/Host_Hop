@@ -1,39 +1,65 @@
-/* google font */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;800&family=VT323&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:wght@300;400;500;600;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:wght@300;400;500;600;800&display=swap rel="stylesheet"');
 
-/* layout */
 :root {
-  --primary: #1aac83;
-  --error: #e7195a;
+  --golden_rod: #987629;
+  --error: #d42e34;
   --light_perwinkle: #e0eaffc6;
   --cream: #fffbf9; 
 }
+
 body {
   background: var(--light_perwinkle);
-  margin: 0;
   font-family: "DM Serif Display", serif;
+  margin: 0;
 }
+
 header {
   background: var(--cream);
 }
+
 header .container {
-  max-width: 1400px;
-  margin: 0 auto;
-  padding: 10px 20px;
   display: flex;
   align-items: center;
   justify-content: space-between;
+  margin: 0 auto;
+  padding: 10px 60px;
 }
+
 header a {
   color: #333;
   text-decoration: none;
 }
 .pages {
-  max-width: 1400px;
-  padding: 20px;
+  max-width: 750px;
+  padding: 15px;
   margin: 0 auto;
 }
+
+.home {
+  display: grid;
+}
+
 .home-button {
   transform: scale(1.5);
+}
+
+.item-details {
+  background: var(--cream);
+  margin: 25px;
+  padding: 25px;
+  border-radius: 8px;
+  box-shadow: 2px 2px 5px #0000023d;
+}
+
+.item-details h4 {
+  margin: 0 0 10px 0;
+  font-size: 1.25em;
+  color: var(--golden_rod);
+}
+
+.item-details p {
+  margin: 0 0 2px 0;
+  font-size: 0.92em;
+  color: #555;
 }

@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import ItemDetails from '../components/ItemDetails';
 
 
 const Home = () => {
@@ -22,7 +23,7 @@ const Home = () => {
         <div className="home">
             <div className="available_items">
                 {items && items.map((item) => (
-                    <p key={item.title}>{item.title}</p>
+                    <ItemDetails key={item._id} item={item}/>
                 ))}
             </div>
         </div>
