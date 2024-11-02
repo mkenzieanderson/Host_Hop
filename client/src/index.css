@@ -1,18 +1,21 @@
 /* google font */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;800&family=VT323&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:wght@300;400;500;600;800&display=swap');
 
 /* layout */
 :root {
   --primary: #1aac83;
   --error: #e7195a;
+  --light_perwinkle: #e0eaffc6;
+  --cream: #fffbf9; 
 }
 body {
-  background: #f1f1f1;
+  background: var(--light_perwinkle);
   margin: 0;
-  font-family: "Poppins";
+  font-family: "DM Serif Display", serif;
 }
 header {
-  background: #fff;
+  background: var(--cream);
 }
 header .container {
   max-width: 1400px;
@@ -26,8 +29,11 @@ header a {
   color: #333;
   text-decoration: none;
 }
-.pages{
+.pages {
   max-width: 1400px;
   padding: 20px;
   margin: 0 auto;
+}
+.home-button {
+  transform: scale(1.5);
 }
