@@ -1,5 +1,7 @@
 import { Link } from 'react-router-dom';
-import HomeButton from './HomeButton';
+import HomeButton from '../HomeButton';
+import SignUpButton from '../SignUpButton';
+import './HeaderBar.css';
 
 const HeaderBar = () => {
 
@@ -11,8 +13,13 @@ const HeaderBar = () => {
                         <h1>Host Hop</h1>
                     </Link>
                 </div>
-                <div className="home-button">
-                    <HomeButton/>
+                <div className="right-container">
+                    <span className="sign-up-button">
+                        <SignUpButton />
+                    </span>
+                    <span className="home-button">
+                        <HomeButton/>
+                    </span>
                 </div>
             </div>    
         </header>

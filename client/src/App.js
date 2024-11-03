@@ -1,6 +1,6 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Home from './pages/home';
-import HeaderBar from './components/HeaderBar';
+import HeaderBar from './components/HeaderBar/HeaderBar.js';
 
 
 function App() {

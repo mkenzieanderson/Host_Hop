@@ -1,0 +1,9 @@
+.right-container {
+    display: flex;
+    gap: 40px; 
+    justify-content: center; 
+}
+
+.sign-up-button {
+    margin-top: 3px;
+}
