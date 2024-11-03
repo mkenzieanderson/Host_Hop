@@ -1,3 +1,5 @@
+import './ItemDetails.css';
+
 const ItemDetails = ({ item }) => {
     return (
         <div className="item-details">

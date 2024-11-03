@@ -7,3 +7,7 @@
 .sign-up-button {
     margin-top: 3px;
 }
+
+.home-button {
+    transform: scale(1.5);
+  }
