@@ -1,0 +1,16 @@
+:root {
+    --golden_rod: #987629; 
+  }
+
+.create-account-title {
+    display: flex;
+    justify-content: center;
+    color: var(--golden_rod);
+    padding-bottom: 10px;
+}
+
+.create-account-button {
+    display: flex;
+    justify-content: center;
+    padding-top: 25px;
+}
