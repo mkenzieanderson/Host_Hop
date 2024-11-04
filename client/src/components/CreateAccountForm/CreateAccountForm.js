@@ -3,7 +3,7 @@ import Box from '@mui/material/Box';
 import FormControl from '@mui/material/FormControl';
 import InputLabel from '@mui/material/InputLabel';
 import Input from '@mui/material/Input';
-import TextField from '@mui/material/TextField';
+import FormHelperText from '@mui/material/FormHelperText';
 import InfoIcon from '@mui/icons-material/InfoOutlined';
 import IconButton from '@mui/material/IconButton';
 import Tooltip from '@mui/material/Tooltip';
@@ -60,6 +60,16 @@ function CreateAccountForm () {
                         id="username"
                         aria-describedby="username"
                     />
+                    <FormHelperText id="username-info-button">
+                        <Tooltip 
+                            title="Username must be between 5 and 15 characters, and can only contain letters,
+                             numbers, and underscores."
+                        >
+                            <IconButton size="small">
+                                <InfoIcon sx={{ fontSize: 17 }} />
+                            </IconButton>
+                        </Tooltip>
+                    </FormHelperText>
                 </FormControl>
             </div>
             <div className="password">
@@ -72,6 +82,16 @@ function CreateAccountForm () {
                         id="password"
                         aria-describedby="password"
                     />
+                    <FormHelperText id="password-info-button">
+                        <Tooltip 
+                            title="Passwords must be between 8 and 15 characters, and must contain at least one 
+                            uppercase letter, at least one lowercase letter, and at least one number"
+                        >
+                            <IconButton size="small">
+                                <InfoIcon sx={{ fontSize: 17 }} />
+                            </IconButton>
+                        </Tooltip>
+                    </FormHelperText>
                 </FormControl>
             </div>
         </Box> 
@@ -79,89 +99,3 @@ function CreateAccountForm () {
     }
 
 export default CreateAccountForm;
-
-
-<div>
-<Box
-component="form"
-sx={{ '& .MuiTextField-root': { m: 1, width: '35ch' } }}
-noValidate
-autoComplete="off"
->
-<div>
-    <TextField
-        required
-        id="outlined-required"
-        label="First Name"
-        slotProps={{
-            inputLabel: {
-            shrink: true,
-            },
-        }}
-    />
-    <TextField
-        required
-        id="outlined-required"
-        label="Last Name"
-        slotProps={{
-            inputLabel: {
-            shrink: true,
-            },
-        }}
-    />
-    </div>
-</Box>
-<Box
-    component="form"
-    sx={{ '& .MuiTextField-root': { m: 1, width: '50ch' } }}
-    noValidate
-    autoComplete="off"
->
-<div>
-    <TextField
-        required
-        id="outlined-required"
-        label="Email"
-        defaultValue="example@domain.com"
-    />
-    {/* <TextField
-        required
-        id="outlined-required"
-        label={"Username", <InfoIcon />}
-        slotProps={{
-            inputLabel: {
-            shrink: true,
-            },
-        }}
-    /> */}
-    <Box display="flex" alignItems="center">
-        <InputLabel htmlFor="outlined-required" shrink>
-            Username
-        </InputLabel>
-        <Tooltip title="Username must be between 3 and 15 characters, and can only contain letters and numbers.">
-            <IconButton size="small">
-            <InfoIcon fontSize="small" />
-            </IconButton>
-        </Tooltip>
-        <TextField
-            required
-            id="outlined-required"
-            variant="outlined"
-            fullWidth
-            margin="normal"
-            sx={{ marginTop: 0 }} // Adjust spacing to keep it aligned
-        />
-    </Box>
-    <TextField
-        required
-        id="outlined-required"
-        label="Password"
-        slotProps={{
-            inputLabel: {
-            shrink: true,
-            },
-        }}
-    />
-</div>
-</Box>
-</div>
