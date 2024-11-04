@@ -1,0 +1,12 @@
+
+.last-name {
+    margin-left:40px;
+}
+
+.email, .username, .password {
+    padding-top:10px;
+}
+
+.password {
+    padding-bottom:15px;
+}
