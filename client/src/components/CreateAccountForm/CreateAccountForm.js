@@ -17,13 +17,13 @@ import './CreateAccount.css';
 
 function CreateAccountForm () {
 
-    // React states and handle functions to capture the input for each of the account fields
     const [firstName, setFirstName] = useState('');
     const [lastName, setLastName] = useState('');
     const [email, setEmail] = useState('');
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
     const [openConfirmation, setOpenConfirmation] = useState(false);
+    const [openSuccessMsg, setOpenSuccessMsg] = useState(false);
 
     const handleOpenConfirmation = () => {
         setOpenConfirmation(true);
@@ -33,9 +33,45 @@ function CreateAccountForm () {
         setOpenConfirmation(false);
       };
 
-    const handleNewAccountSubmit = (event) => {
-        event.preventDefault();
-        //onFormSubmit({ firstName, lastName, email, username, password });
+    const resetDataFields = () => {
+        setFirstName('');
+        setLastName('');
+        setEmail('');
+        setUsername('');
+        setPassword('');
+    };
+
+    const handleOpenSuccessMsg = () => {
+        setOpenSuccessMsg(true);
+    };
+
+    const handleCloseSuccessMsg = () => {
+        setOpenSuccessMsg(false);
+    };
+
+
+    const handleNewAccountCreation = async (event) => {
+        const data = { firstName, lastName, email, username, password }
+        if (data) {
+            try {
+                const response = await fetch('/account', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(data),
+                });
+                if (response.ok) {
+                    console.log("Account created successfully");
+                    handleOpenSuccessMsg();
+                    
+                } else {
+                    console.error("Failed to create account");
+                }
+            } catch (error) {
+                console.error("Error:", error);
+            }
+        }
+        resetDataFields();
+        handleCloseConfirmation();
     };
 
 
@@ -43,7 +79,6 @@ function CreateAccountForm () {
         <div>
             <Box 
                 component="form"
-                onSubmit={handleNewAccountSubmit}
                 sx={{ '& > :not(style)': { m: 1 } }}
                 noValidate
                 autoComplete="off"
@@ -168,7 +203,7 @@ function CreateAccountForm () {
                         </Button>
                         <Button 
                             variant="contained"
-                            onClick={handleCloseConfirmation} 
+                            onClick={handleNewAccountCreation} 
                             color="success"
                             className="continue-button"
                         >
@@ -177,6 +212,24 @@ function CreateAccountForm () {
                     </DialogActions>
                 </Dialog>
             </div> 
+            <Dialog
+                open={openSuccessMsg}
+                onClose={handleCloseSuccessMsg}
+            >
+                <DialogTitle className="create-account-success">
+                    Your account was successfully created!
+                </DialogTitle>
+                <DialogActions className="confirmation-buttons">
+                    <Button 
+                        variant="contained"
+                        onClick={handleCloseSuccessMsg} 
+                        color="success"
+                        className="close-success-msg-button"
+                    >
+                        Close
+                    </Button>
+                </DialogActions>
+            </Dialog>
         </div>
       );
     }

@@ -1,6 +1,5 @@
 const Account = require('../models/accountModel');
 
-// add a new account
 const addAccount = async (req, res) => {
     const {firstName, lastName, email, username, password} = req.body;
 
