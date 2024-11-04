@@ -4,10 +4,7 @@
     justify-content: center; 
 }
 
-.sign-up-button {
-    margin-top: 3px;
-}
-
 .home-button {
+    margin-top: 17px;
     transform: scale(1.5);
   }
