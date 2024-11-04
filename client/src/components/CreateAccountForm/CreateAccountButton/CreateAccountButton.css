@@ -1,0 +1,14 @@
+.are-you-sure-title {
+    padding-bottom: 20px !important;
+
+}
+
+.buttons {
+    display: flex !important;
+    justify-content: center !important;
+    padding: 15px 0 30px 0 !important;
+}
+
+.cancel-button {
+    margin-right: 30px !important;
+}

@@ -1,5 +1,5 @@
 import CreateAccountForm from "../../components/CreateAccountForm/CreateAccountForm";
-import CreateAccountButton from "../../components/CreateAccountForm/CreateAccountButton";
+import CreateAccountButton from "../../components/CreateAccountForm/CreateAccountButton/CreateAccountButton";
 import './CreateAccount.css';
 
 
