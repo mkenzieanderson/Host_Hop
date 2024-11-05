@@ -11,8 +11,8 @@ const CreateAccount = () => {
             </div>
             <div className="create-account-blurb">
                 <p>Create your own personal account to unlock access to the Seller’s Marketplace, view order 
-                    history, save your wishlist, and more! Getting started is quick and easy—just follow the 
-                    steps below.</p>
+                    history, save your wishlist, and more! Getting started is quick and easy - fill in each text
+                    box below and click "Sign Up"</p>
             </div>
             <div className="create-account-form">
                 <CreateAccountForm />
