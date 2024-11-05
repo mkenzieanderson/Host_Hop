@@ -12,7 +12,7 @@ Nodemon must all be installed to your device. You can do this through the follow
 \
 With the host_hop repo open, navigate to the server folder.\
 Enter the following command in your terminal to install the following packages in the server folder:
-* _npm install express dotenv mongodb mongoose cors_ 
+* _npm install express dotenv mongodb mongoose cors bcrypt_ 
 
 #### Client Side
 From the terminal, navigate to the client directory.\

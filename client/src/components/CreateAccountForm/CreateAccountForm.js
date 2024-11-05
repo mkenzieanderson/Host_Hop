@@ -86,8 +86,6 @@ function CreateAccountForm () {
         
         validateEmail()
             .then(isValidEmail => {
-                console.log(isValidEmail); 
-                
                 if (!isValidEmail) {    
                     handleInvalidEmail();
                     return;
