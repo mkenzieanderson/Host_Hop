@@ -12,4 +12,36 @@ const addAccount = async (req, res) => {
     };
 };
 
-module.exports = addAccount;
+const validateEmail = async (req, res) => {
+    const { email } = req.body;
+
+    try {
+        const emails = await Account.find({email}, 'email');
+        if (emails.length > 0) {                        // Email already exists in system
+            res.status(200).json({ valid: false });     
+        } else {
+            res.status(200).json({ valid: true });      
+        }
+    } catch (error) {
+        res.status(500).json({ error: error.message });
+    }
+};
+
+
+const validateUsername = async (req, res) => {
+    const { username } = req.body;
+
+    try {
+        const usernames = await Account.find({username}, 'username');
+        console.log(username);
+        if (usernames.length > 0) {                        // username already exists in system
+            res.status(200).json({ valid: false });     
+        } else {
+            res.status(200).json({ valid: true });      
+        }
+    } catch (error) {
+        res.status(500).json({ error: error.message });
+    }
+};
+
+module.exports = {addAccount, validateEmail, validateUsername};

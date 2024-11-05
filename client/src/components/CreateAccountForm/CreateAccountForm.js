@@ -24,6 +24,7 @@ function CreateAccountForm () {
     const [password, setPassword] = useState('');
     const [openConfirmation, setOpenConfirmation] = useState(false);
     const [openSuccessMsg, setOpenSuccessMsg] = useState(false);
+    const [emailError, setEmailError] = useState(false);
 
     const handleOpenConfirmation = () => {
         setOpenConfirmation(true);
@@ -39,6 +40,7 @@ function CreateAccountForm () {
         setEmail('');
         setUsername('');
         setPassword('');
+        setEmailError(false);
     };
 
     const handleOpenSuccessMsg = () => {
@@ -49,29 +51,69 @@ function CreateAccountForm () {
         setOpenSuccessMsg(false);
     };
 
+    const handleCloseEmailError = () => {
+        setEmailError(false);
+    };
 
-    const handleNewAccountCreation = async (event) => {
-        const data = { firstName, lastName, email, username, password }
+    const handleInvalidEmail = () => {
+        setEmailError(true);
+        handleCloseConfirmation();
+    };
+
+    const validateEmail = async () => {
+        const data = { email };
         if (data) {
             try {
-                const response = await fetch('/account', {
+                const response = await fetch ('/account/emails', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify(data),
                 });
-                if (response.ok) {
-                    console.log("Account created successfully");
-                    handleOpenSuccessMsg();
-                    
+                const result = await response.json();
+                if (result.valid === false) {
+                    return false;       
                 } else {
-                    console.error("Failed to create account");
+                    return true;
                 }
             } catch (error) {
                 console.error("Error:", error);
             }
-        }
-        resetDataFields();
-        handleCloseConfirmation();
+        } 
+    };
+
+    const handleNewAccountCreation = (event) => {
+        const data = { firstName, lastName, email, username, password };
+        
+        validateEmail()
+            .then(isValidEmail => {
+                console.log(isValidEmail); 
+                
+                if (!isValidEmail) {    
+                    handleInvalidEmail();
+                    return;
+                }
+                
+                if (data) {
+                    fetch('/account', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify(data),
+                    })
+                    .then(response => {
+                        if (response.ok) {
+                            console.log("Account created successfully");
+                            handleOpenSuccessMsg();
+                        } else {
+                            console.error("Failed to create account");
+                        }
+                    })
+                    .catch(error => {
+                        console.error("Error:", error);
+                    });
+                }
+                resetDataFields();
+                handleCloseConfirmation();
+            });
     };
 
 
@@ -219,12 +261,30 @@ function CreateAccountForm () {
                 <DialogTitle className="create-account-success">
                     Your account was successfully created!
                 </DialogTitle>
-                <DialogActions className="confirmation-buttons">
+                <DialogActions className="success-msg-buttons">
                     <Button 
                         variant="contained"
                         onClick={handleCloseSuccessMsg} 
                         color="success"
                         className="close-success-msg-button"
+                    >
+                        Close
+                    </Button>
+                </DialogActions>
+            </Dialog>
+            <Dialog
+                open={emailError}
+                onClose={handleCloseEmailError}
+            >
+                <DialogTitle className="email-error">
+                    There already exists an account with that email. Account creation could not be completed.
+                </DialogTitle>
+                <DialogActions className="email-error-buttons">
+                    <Button 
+                        variant="contained"
+                        onClick={handleCloseEmailError} 
+                        color="error"
+                        className="close-email-error-button"
                     >
                         Close
                     </Button>
