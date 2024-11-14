@@ -13,6 +13,7 @@ import DialogTitle from '@mui/material/DialogTitle';
 import DialogContent from '@mui/material/DialogContent';
 import DialogActions from '@mui/material/DialogActions';
 import Typography from '@mui/material/Typography';
+import generate_password from './PasswordGenerator';
 import './CreateAccount.css';
 
 function CreateAccountForm () {
@@ -114,6 +115,10 @@ function CreateAccountForm () {
             });
     };
 
+    const generatePassword = () => {
+        const password = generate_password();
+        setPassword(password);
+    }
 
     return (
         <div>
@@ -209,7 +214,10 @@ function CreateAccountForm () {
                                 </IconButton>
                             </Tooltip>
                         </FormHelperText>
-                        <Button>
+                        <Button
+                            onClick={generatePassword}
+                            className="generate-pwd-button" 
+                        >
                             Generate Password
                         </Button>
                     </FormControl>

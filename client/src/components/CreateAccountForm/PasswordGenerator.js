@@ -21,4 +21,4 @@ function generate_password () {
     return password;
 };
 
-generate_password();
+export default generate_password;
