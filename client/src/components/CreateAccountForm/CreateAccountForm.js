@@ -209,6 +209,9 @@ function CreateAccountForm () {
                                 </IconButton>
                             </Tooltip>
                         </FormHelperText>
+                        <Button>
+                            Generate Password
+                        </Button>
                     </FormControl>
                 </div>
             </Box>
